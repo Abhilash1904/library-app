@@ -7,6 +7,6 @@ public class HomePage {
 
     @GetMapping("home")
     public String test(){
-        return "from test controller";
+        return "from test controller1";
     }
 }
