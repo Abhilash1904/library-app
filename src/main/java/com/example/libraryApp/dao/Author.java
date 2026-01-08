@@ -9,7 +9,8 @@ import java.sql.Date;
 public class Author {
 
     @Id
-    Long id;
+    @Column(name = "author_id")
+    Integer  authorId;
 
     @Column( name = "name")
     String name;
@@ -21,9 +22,9 @@ public class Author {
     String nationality;
 
     // Getters and Setters
-    public Long getAuthorId() { return id; }
+    public Integer  getAuthorId() { return authorId; }
 
-    public void setAuthorId(Long authorId) { this.id = authorId; }
+    public void setAuthorId(Integer authorId) { this.authorId = authorId; }
 
     public String getName() { return name; }
 
