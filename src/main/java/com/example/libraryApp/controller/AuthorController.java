@@ -53,5 +53,23 @@ public class AuthorController {
     }
 
 //    implement patch mapping
+    @PatchMapping("/partialUpdate/{id}")
+    public String updatePartial(@PathVariable Integer id, @RequestBody Map<String, Object> val){
+
+        Optional<Author> author = authorRepository.findById(id);
+
+        if(author.isPresent()){
+            val.forEach((key, value)->{
+                switch (key){
+                    case "name" : author.get().setName((String) value);
+                    case "nationality" : author.get().setName((String) value);
+                }
+            });
+            authorRepository.saveAndFlush(author.get());
+            return "Author updated";
+        }else return "Invalid Author id";
+
+
+    }
 }
 
